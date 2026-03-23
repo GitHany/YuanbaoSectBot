@@ -1,0 +1,38 @@
+name: Python Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Run tests
+      run: |
+        python -m pytest tests/ --verbose
+    
+    - name: Run linting
+      run: |
+        pip install flake8 black
+        flake8 algorithms/ --max-line-length=100
+        black --check algorithms/
+    
+    - name: Run code coverage
+      run: |
+        pip install pytest-cov
+        python -m pytest tests/ --cov=algorithms --cov-report=term-missing
