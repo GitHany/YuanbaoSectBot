@@ -1,0 +1,122 @@
+# Git 忽略文件配置
+
+# SSH密钥文件
+*.key
+*.pem
+*.priv
+*.secret
+id_rsa*
+id_ed25519*
+*.key.pub
+*.pem.pub
+ssh_key*
+
+# 配置文件
+.env
+.env.local
+.env.*
+.config
+.config.local
+
+# 密钥和密码文件
+*.secret
+*.password
+*.credential
+credentials.json
+secrets.json
+
+# 日志文件
+*.log
+logs/
+log/
+
+# 临时文件
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Python虚拟环境
+venv/
+.env/
+.venv/
+pyvenv.cfg
+pip-delete-this-directory.txt
+
+# Python缓存和编译文件
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg-info
+
+# IDE和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 测试文件
+coverage.xml
+.coverage
+.pytest_cache/
+
+# 个人配置
+*.local
+.local/
+personal/
+private/
+
+# 数据文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 备份文件
+*.bak
+*.backup
+backup/
+
+# 文档文件
+*.doc
+*.docx
+*.pdf
+*.ppt
+*.pptx
+
+# 图像文件
+*.jpg
+*.png
+*.gif
+*.bmp
+
+# 音频和视频文件
+*.mp3
+*.mp4
+*.wav
+
+# 压缩文件
+*.zip
+*.tar
+*.gz
+*.7z
+
+# 二进制文件
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 自定义忽略文件
+*.personal
+*.private
+*.secure
