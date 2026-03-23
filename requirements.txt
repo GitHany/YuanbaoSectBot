@@ -1,0 +1,16 @@
+# YuanbaoSectBot - Python算法库依赖
+
+# 主要依赖（可选）
+numpy>=1.21.0
+matplotlib>=3.4.0
+
+# 测试依赖
+pytest>=6.2.5
+pytest-cov>=3.0.0
+
+# 开发工具
+flake8>=4.0.0
+black>=22.0.0
+
+# Python版本要求
+python>=3.8
