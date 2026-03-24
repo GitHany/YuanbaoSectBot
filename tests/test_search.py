@@ -179,7 +179,7 @@ class TestDFS(unittest.TestCase):
         """测试空图"""
         empty_graph = {}
         result = dfs_iterative(empty_graph, 0)
-        self.assertEqual(result, [0])
+        self.assertEqual(result, [])
         
         # 图中不存在起始节点
         with self.assertRaises(KeyError):
@@ -283,7 +283,7 @@ class TestBFS(unittest.TestCase):
         """测试空图"""
         empty_graph = {}
         result = bfs(empty_graph, 0)
-        self.assertEqual(result, [0])
+        self.assertEqual(result, [])
         
         # 图中不存在起始节点
         with self.assertRaises(KeyError):

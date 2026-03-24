@@ -40,8 +40,14 @@ def dfs_iterative(graph, start):
         list: DFS遍历顺序
     """
     visited = set()
-    stack = [start]
+    stack = []
     result = []
+    
+    # 检查起始节点是否在图中
+    if start not in graph:
+        return result
+    
+    stack = [start]
     
     while stack:
         node = stack.pop()

@@ -14,9 +14,14 @@ def bfs(graph, start):
         list: BFS遍历顺序
     """
     visited = set()
-    queue = [start]
-    visited.add(start)
     result = []
+    
+    # 检查起始节点是否在图中
+    if start not in graph:
+        return result
+    
+    visited.add(start)
+    queue = [start]
     
     while queue:
         node = queue.pop(0)

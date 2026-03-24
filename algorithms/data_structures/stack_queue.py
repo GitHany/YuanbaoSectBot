@@ -109,7 +109,7 @@ class Queue:
             raise IndexError("队列为空")
         return self.items[0]
     
-    def is_empty(	):
+    def is_empty(self):
         """
         检查队列是否为空
         

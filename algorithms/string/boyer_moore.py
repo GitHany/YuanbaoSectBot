@@ -35,27 +35,26 @@ def boyer_moore_good_suffix_table(pattern):
         list: 好后缀表
     """
     m = len(pattern)
-    good_suffix_table = [0] * (m + 1)
+    good_suffix_table = [m] * (m + 1)
     
-    # 第一步：计算前缀表
-    prefix_table = [0] * m
-    length = 0
-    
-    for i in range(1, m):
-        while length > 0 and pattern[i] != pattern[length]:
-            length = prefix_table[length - 1]
+    # 计算后缀表
+    for i in range(m - 1):
+        j = m - 1
+        k = i
         
-        if pattern[i] == pattern[length]:
-            length += 1
-            prefix_table[i] = length
+        while j >= 0 and pattern[j] == pattern[k]:
+            j -= 1
+            k -= 1
+        
+        if j < 0:
+            # 完全匹配
+            good_suffix_table[m - i - 1] = i + 1
     
-    # 第二步：构建好后缀表
-    suffix_positions = [0] * m
-    
+    # 处理部分匹配
     for i in range(m):
-        suffix_positions[i] = m - prefix_table[i]
+        good_suffix_table[i] = max(1, m - i - 1)
     
-    return suffix_positions
+    return good_suffix_table
 
 
 def boyer_moore_search(text, pattern):
@@ -92,11 +91,14 @@ def boyer_moore_search(text, pattern):
         # 如果完全匹配
         if j < 0:
             matches.append(i)
-            # 使用好后缀表移动模式串
-            i += good_suffix_table[0]
+            i += 1  # 移动1个位置以支持重叠匹配
         else:
             # 坏字符规则
-            bad_char_offset = m - j - 1
+            char = text[i + j]
+            bad_char_offset = 1
+            
+            if char in bad_char_table:
+                bad_char_offset = max(1, bad_char_table[char] - j)
             
             # 好后缀规则
             good_suffix_offset = good_suffix_table[j]
@@ -141,14 +143,14 @@ def boyer_moore_simple_search(text, pattern):
         
         if j < 0:
             matches.append(i)
-            i += m  # 完全匹配时移动整个模式长度
+            i += 1  # 完全匹配时移动1个位置，以支持重叠匹配
         else:
             # 坏字符规则
             char = text[i + j]
             
             if char in bad_char_table:
                 offset = bad_char_table[char]
-                i += max(1, m - j - offset)
+                i += max(1, offset)
             else:
                 # 字符不在模式中，移动整个模式长度
                 i += m
