@@ -22,20 +22,10 @@ from algorithms.graph.minimum_spanning_tree import prim, kruskal, dijkstra_mst
 from algorithms.mathematical.primes import is_prime, sieve_of_eratosthenes, prime_factors, gcd, lcm
 from algorithms.mathematical.fibonacci import fibonacci_recursive, fibonacci_iterative, fibonacci_dynamic, fibonacci_memoization, fibonacci_matrix, fibonacci_sequence
 from algorithms.mathematical.fast_power import fast_power, fast_power_recursive
-from algorithms.mathematical.number_theory import (
+from algorithms.mathematical.number_theory_simple import (
     gcd_euclidean,
     gcd_euclidean_recursive,
-    extended_gcd,
-    fast_power,
-    fast_power_recursive,
-    sieve_of_eratosthenes_optimized,
-    sieve_of_eratosthenes_bitwise,
-    segmented_sieve,
-    prime_count_approximation,
-    prime_generator,
-    verify_prime,
-    calculate_lcm,
-    modular_inverse
+    sieve_of_eratosthenes
 )
 
 from algorithms.string.kmp import kmp_preprocess, kmp_search, kmp_search_with_prefix_table, kmp_longest_prefix_suffix, kmp_visualize, kmp_performance_test
