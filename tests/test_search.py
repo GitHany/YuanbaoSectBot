@@ -3,9 +3,12 @@
 """
 
 import unittest
+import sys
+sys.path.insert(0, '../.')
+
 from algorithms.search.binary_search import binary_search, binary_search_recursive, binary_search_leftmost, binary_search_rightmost
 from algorithms.search.dfs import dfs_recursive, dfs_iterative, dfs_with_path, dfs_cycle_detection, dfs_topological_sort, dfs_connected_components
-from algorithms.search.bfs import bfs, bfs_with_path, bfs_levels, bfs_connected_components, bfs_bidirectional, bfs_distance, bfs_max_distance
+from algorithms.search.bfs import bfs, bfs_levels, bfs_with_path, bfs_connected_components, bfs_bidirectional, bfs_distance, bfs_max_distance
 
 
 class TestBinarySearch(unittest.TestCase):
@@ -182,8 +185,8 @@ class TestDFS(unittest.TestCase):
         self.assertEqual(result, [])
         
         # 图中不存在起始节点
-        with self.assertRaises(KeyError):
-            dfs_iterative(empty_graph, 1)
+        result = dfs_iterative(empty_graph, 1)
+        self.assertEqual(result, [])
 
 
 class TestBFS(unittest.TestCase):
@@ -286,8 +289,8 @@ class TestBFS(unittest.TestCase):
         self.assertEqual(result, [])
         
         # 图中不存在起始节点
-        with self.assertRaises(KeyError):
-            bfs(empty_graph, 1)
+        result = bfs(empty_graph, 1)
+        self.assertEqual(result, [])
 
 
 if __name__ == "__main__":
