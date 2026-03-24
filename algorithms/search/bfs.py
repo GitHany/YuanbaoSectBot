@@ -142,6 +142,10 @@ def bfs_bidirectional(graph, start, end):
     if start == end:
         return [start]
     
+    # 检查起始节点和目标节点是否在图里
+    if start not in graph or end not in graph:
+        return None
+    
     visited_start = {start: 0}
     visited_end = {end: 0}
     queue_start = [start]
