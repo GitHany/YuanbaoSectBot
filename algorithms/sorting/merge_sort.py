@@ -82,7 +82,7 @@ def merge_sort_iterative(arr):
 if __name__ == "__main__":
     # 测试示例
     test_arr = [12, 11, 13, 5, 6, 7]
-    print("原始数组:",1	test_arr)
+    print("原始数组:", test_arr)
     
     sorted_arr = merge_sort(test_arr.copy())
     print("递归归并排序结果:", sorted_arr)
